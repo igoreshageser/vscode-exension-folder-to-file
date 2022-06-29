@@ -1,19 +1,19 @@
-import * as vscode from 'vscode';
 import * as path from 'path';
+import * as vscode from 'vscode';
 
-const createIndexFileName = (ext: string): string => 'index' + ext;
+const createIndexFileName = (ext: string): string => `index${ext}`;
 
-async function tryTo(
+const tryTo = async (
   fn: () => Thenable<any>,
   errorMessage: string
-): Promise<void> {
+): Promise<void> => {
   try {
     await fn();
   } catch (e) {
-    vscode.window.showErrorMessage(errorMessage);
-    vscode.window.showErrorMessage(JSON.stringify(e));
+    await vscode.window.showErrorMessage(errorMessage);
+    await vscode.window.showErrorMessage(JSON.stringify(e));
   }
-}
+};
 
 async function convertHandler(ctx: any): Promise<void> {
   const convertationFilePath = ctx.fsPath;
