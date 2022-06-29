@@ -104,4 +104,4 @@ dist
 .tern-port
 
 out
-# src/test/demoWorkspace
+src/test/demoWorkspace/**
