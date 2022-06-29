@@ -2,4 +2,6 @@
 
 Simple vscode extension which allow convert file to folder
 
+```bash
 visitor.ts => visitor/index.ts
+```
