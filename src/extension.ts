@@ -10,8 +10,10 @@ const tryTo = async (
   try {
     await fn();
   } catch (e) {
-    await vscode.window.showErrorMessage(errorMessage);
-    await vscode.window.showErrorMessage(JSON.stringify(e));
+    const error = JSON.stringify(e);
+    await vscode.window.showErrorMessage(`${errorMessage}; ${error}`);
+
+    throw new Error(`file-to-folder error; ${error}`);
   }
 };
 
